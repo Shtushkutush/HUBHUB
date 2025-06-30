@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор объявлений для Авито</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Генератор объявлений для Авито</h1>
+    <p class="subtitle">Создайте привлекательное объявление о недвижимости</p>
+    
+    <form id="adForm">
+      <div class="form-group">
+        <label for="propertyType">Тип недвижимости:</label>
+        <select id="propertyType" required>
+          <option value="квартира">Квартира</option>
+          <option value="дом">Дом</option>
+          <option value="комната">Комната</option>
+          <option value="участок">Земельный участок</option>
+          <option value="коммерческая">Коммерческая недвижимость</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="area">Площадь (м²):</label>
+        <input type="number" id="area" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="rooms">Количество комнат:</label>
+        <input type="number" id="rooms" min="1" value="1">
+      </div>
+      
+      <div class="form-group">
+        <label for="location">Район/Адрес:</label>
+        <input type="text" id="location" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="price">Цена (руб.):</label>
+        <input type="number" id="price" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="advantages">Преимущества (через запятую):</label>
+        <textarea id="advantages" placeholder="Ремонт, мебель, вид из окна, балкон и т.д."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="infrastructure">Инфраструктура рядом:</label>
+        <textarea id="infrastructure" placeholder="Школы, парки, метро, магазины и т.д."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="additional">Дополнительная информация:</label>
+        <textarea id="additional" placeholder="Этаж, год постройки, особенности и т.д."></textarea>
+      </div>
+      
+      <button type="submit" id="generateBtn">Сгенерировать объявление</button>
+    </form>
+    
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p>Генерируем объявление...</p>
+    </div>
+    
+    <div id="result" class="hidden">
+      <h2>Ваше объявление:</h2>
+      <div id="adContent" class="ad-content"></div>
+      <button id="copyBtn" class="copy-btn">Копировать текст</button>
+    </div>
+  </div>
+  
+  <script src="/client.js"></script>
+</body>
+</html>
